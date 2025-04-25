@@ -1,0 +1,14 @@
+@use '@angular/material' as mat;
+// :host .btn-sing-in {
+//     @include mat.button-overrides((
+//       filled-container-color: orange,
+//       filled-label-text-color: #23e062,
+//     ));
+// }
+
+.test .mat-mdc-raised-button {
+    background-color: var(--mat-sys-on-surface);
+    color: rgb(14, 235, 50);
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,73 @@
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;">
+    <mat-card appearance="outlined" class="test">
+        @if(showProgressBar){
+            <div style="display: flex; justify-content: center;">
+                <mat-progress-bar mode="indeterminate" style="border-radius: 20px 20px 0 0; width: 97.5%;"></mat-progress-bar>
+            </div>
+        }
+        <mat-card-content>
+            <div style="display: flex; justify-content: center;">
+                <img src="https://miro.medium.com/v2/resize:fit:512/1*FKD2Uy_Q6r6AviZA2VD4RQ.png"
+                style="height: 70px;">
+            </div>
+
+            <form [formGroup]="signUpForm" (submit)="signIn()">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="name" type="text" formControlName="name">
+                        <mat-icon matSuffix>alternate_email</mat-icon>
+                        <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="email" type="email" formControlName="email">
+                        <mat-icon matSuffix>alternate_email</mat-icon>
+                        <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                </p>
+    
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" />
+                        <button
+                            type="button"
+                            mat-icon-button
+                            matSuffix
+                            (click)="clickEvent($event)"
+                            [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide()"
+                        >
+                            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm your password</mat-label>
+                        <input matInput [type]="hide2() ? 'password' : 'text'" formControlName="confirmPassword" />
+                        <button
+                            type="button"
+                            mat-icon-button
+                            matSuffix
+                            (click)="clickEvent2($event)"
+                            [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide2()"
+                        >
+                            <mat-icon>{{hide2() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+                <div style="display: flex; justify-content: center;">                
+                    <button mat-stroked-button [disabled]="signUpForm.invalid" class="btn-sing-in" type="submit">Registrar</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
