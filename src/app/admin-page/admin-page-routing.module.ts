@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('./features-modules/clients/clients.module').then(childRouting => childRouting.ClientsModule)
       },
       {
+        path: 'tasks',
+        loadChildren: () => import('./features-modules/tasks/tasks.module').then(childRouting => childRouting.TasksModule)
+      },
+      {
         path: '**',
         redirectTo: 'users'
       }
