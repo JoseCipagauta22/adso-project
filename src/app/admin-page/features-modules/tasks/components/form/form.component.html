@@ -1,0 +1,52 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <form [formGroup]="profileForm" (submit)="datos ? updateTask(datos.id) : createTask()">
+        <h1 style="text-align: center;">{{datos ? 'Editar' : 'Agregar'}}</h1>
+        <!-- <p *ngIf="false">
+            <mat-form-field appearance="outline">
+                <mat-label>Id</mat-label>
+                <input matInput placeholder="Id" formControlName="id">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </p> -->
+
+        <!-- <p>
+            <button mat-raised-button color="primary" (click)="fileInput.click()">Seleccionar Imagen</button>
+            <input #fileInput type="file" hidden (change)="onFileChange($event)" accept="image/*" />
+        </p> -->
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Descripcion</mat-label>
+                <input matInput placeholder="Descripcion" formControlName="tittle">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-slide-toggle
+                class="example-margin"
+                [checked]="checked"
+                formControlName="completed">
+                completada
+            </mat-slide-toggle>
+        </p>
+
+        <!-- <p>
+            <mat-form-field style="width: 100%;">
+                <input type="text" placeholder="Elige una opción" matInput formControlName="pais" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostrarOpcion">
+                    <mat-option *ngFor="let opcion of opcionesFiltradas | async" [value]="opcion">
+                        {{ opcion }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </p> -->
+
+        <div style="display: flex; justify-content: center;">
+            <button [disabled]="profileForm.invalid" mat-stroked-button type="submit">
+                {{datos ? 'Actualizar' : 'agregar +'}} 
+            </button>
+        </div>
+
+    </form>
+</div>

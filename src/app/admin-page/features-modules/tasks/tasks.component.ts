@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TasksService } from './services/tasks.service';
+import { MatDialog } from '@angular/material/dialog';
+import { FormComponent } from './components/form/form.component';
 
 @Component({
   selector: 'app-tasks',
@@ -9,22 +11,26 @@ import { TasksService } from './services/tasks.service';
 })
 export class TasksComponent {
 
-  constructor( private tasksService: TasksService ){}
+  constructor(public dialogo: MatDialog, private tasksService: TasksService  ){}
+
+  openModal(){
+    this.tasksService.guardarDialogoRef(this.dialogo.open(FormComponent, {height: '500px', width:'460px'}));
+  }
 
   getTask(){
     this.tasksService.getTasks();
   }
 
   createTask(){
-    this.tasksService.createTask();
+    // this.tasksService.createTask();
   }
 
   updateTask(){
-    this.tasksService.updateTask();
+    // this.tasksService.updateTask();
   }
 
   deleteTask(){
-    this.tasksService.deleteTask();
+    // this.tasksService.deleteTask();
   }
 
 }
