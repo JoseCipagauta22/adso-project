@@ -1,0 +1,46 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <form [formGroup]="profileForm" (submit)="datos ? updateUser(datos.id) : createUser()">
+        <h1 style="text-align: center;">{{datos ? 'Editar' : 'Agregar'}}</h1>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Descripcion" formControlName="name">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Descripcion" formControlName="lastName">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Numero documento</mat-label>
+                <input matInput placeholder="Descripcion" formControlName="doc">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <!-- <p>
+            <mat-form-field style="width: 100%;">
+                <input type="text" placeholder="Elige una opción" matInput formControlName="pais" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostrarOpcion">
+                    <mat-option *ngFor="let opcion of opcionesFiltradas | async" [value]="opcion">
+                        {{ opcion }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </p> -->
+
+        <div style="display: flex; justify-content: center;">
+            <button [disabled]="profileForm.invalid" mat-stroked-button type="submit">
+                {{datos ? 'Actualizar' : 'agregar +'}} 
+            </button>
+        </div>
+
+    </form>
+</div>

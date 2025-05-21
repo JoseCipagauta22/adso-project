@@ -20,8 +20,6 @@ export class FormComponent {
     @Inject(MAT_DIALOG_DATA) public datos: any,
     private taskService: TasksService,
   ){
-    console.log(this.datos, 'dtos');
-    
     this.profileForm = this.formBuilder.group({
       tittle: [this.datos?.tittle || '', Validators.required],
       completed: [this.datos?.completed || false, Validators.required],
