@@ -8,12 +8,14 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { UsersService } from './services/users.service';
+import { TableUsersComponent } from './components/table-users/table-users.component';
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    FormularioComponent
+    FormularioComponent,
+    TableUsersComponent
   ],
   imports: [
     CommonModule,

@@ -22,7 +22,10 @@ export class FormularioComponent {
     });
   }
 
-  updateUser(id: string){}
+  updateUser(id: string){
+    this.usersService.updateUser(this.profileForm.value, Number(id));
+    this.usersService.cerrarModal();
+  }
 
   createUser(){
     this.usersService.createUser(this.profileForm.value);
